@@ -1,0 +1,72 @@
+body{
+    background-image: url(img/49380234_2183080501714769_5785045498574405632_o.jpg);
+    background-size: cover;
+    font-family: "Open Sans" sans-serif;
+    font-size: 24px;
+}
+
+/*aqui é a caixa, como é uma div que contem todos os elementos dentro dela, é como se tivesses a posicionar-los nela. Para chegar até ao fundo da página tem que se pôr height de 100% ou 100vh (trabalhem em percentagens é mais responsivo)*/
+.zona{
+    background-color: #F2DBB6;
+    height: 100%;
+}
+.ebec{
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30%;
+}
+
+#name, #pass{
+    width:70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 6%;
+    background-color: #666666;
+    border: none;
+    border-radius: 10px;
+    margin-top: 5%;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    padding-left: 3%;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+    padding-left: 3%;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+    padding-left: 3%;
+}
+
+#name{
+    margin-top: 15%;
+}
+
+#submit{
+    background-color: #F1A327;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    height: 6%;
+    padding: 0 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    text-align: center;
+}
+
+/*Isto é um media querie, é algo utilizado tbm para a responsividade, aqui estou a dizer que em ecrãs até 768px (telemoveis e tablets) tem aquele comportamento e quando passa desses valores tem o comportamento descrito em cima */
+@media only screen and (max-width:768px){
+    .zona{
+        border-radius: 10px;
+        height: 90%;
+        margin-top: 5%;
+}

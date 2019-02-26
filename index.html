@@ -1,28 +1,34 @@
 <DOCTYPE html>
 <html>
     <head>
-    <title>login</title>
+        <meta charset="utf-8"/>
+        <title>login</title>
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
+        <link type="text/css" rel="stylesheet" href="estilo_index.css"/>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     </head>
-    <style>
-        body{
-            background-image: url(Google_Videos_logo.png);
-/*            background-repeat: no-repeat;*/
-            background-position: center;
-            background-size: cover;
-        }
-    </style>
     <body>
-    <form action="">
-        Username:<br>
-        <input type="text" name="username">
-               <br>
-        Password:<br>
-        <input type="password" name="password">
-        <br>
-    
-        <input type="submit" value="submit">
-        
-    </form>
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="zona col-10 col-sm-10 col-md-6 col-lg-4 col-xl-4 offset-1 offset-sm-1 offset-md-6 offset-lg-8 offset-xl-8 " >
+                        <img class="img-responsive ebec" src="img/EBEC_Local_short_name-1black.png">
+                        <form action="">
+                            
+                            <input id="name" placeholder="Username" type="text" name="username" >
+                            
+                            <input id="pass" placeholder="Password" type="password" name="password">
+
+                            <input id="submit" type="submit" value="Log in">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
 </DOCTYPE>
