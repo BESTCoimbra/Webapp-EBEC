@@ -1,0 +1,111 @@
+
+body{
+    font-family: "Open Sans" sans-serif;
+}
+    header{
+					height: 20vh;
+					
+					position: relative;
+					
+				}
+
+				#imagemHeader img{
+					position: absolute;
+					margin-top: 10%;
+					left: 13%;
+          			width: 100%;
+					
+				}
+
+				
+
+
+				h1{
+					width: 80%;
+					color: #F1A337;
+					font-size: 42px;
+					margin-top: 5%;
+					margin-left: 10%;
+					border-bottom: black 1px solid;
+				}
+
+				#material{
+                    width:100%;
+                    margin-left: 10%;
+                    margin-top: 20%;
+				
+				}
+#nome{
+    width:80%;
+    margin-top: 6%;
+    margin-left: 5%;
+}
+#preco{
+    width: 30%;
+    margin-top:6%;
+    margin-left: 10%;
+}
+#quantidade{
+    width:30%;
+    margin-top: 6.5%;
+    color: black;
+    font-size: 18px;
+
+}
+#numero{
+    background-color: #666666;
+        color:white;
+    width:5%;
+    text-align: center
+       
+    
+}
+				
+
+				input[type=text] {
+		          width: 100%;
+		          border: 0;
+		          border-bottom: black 1px solid;
+		        }
+
+		        ::placeholder {
+		          
+		          color: black;
+		          font-size: 18px;
+		        }
+
+				nav{
+					
+					position: relative;
+					height: 20vh;
+					
+
+				}
+
+				.button{
+
+		          float: right;
+		          background-color:#F1A337;
+		          border: none;
+		          color: white;
+		          padding: 20px 80px;
+		          text-align: center;
+		          text-decoration: none;
+		          display: inline-block;
+		          font-size: 20px;
+		          margin: 30px 5px 0; /*Se mudares o 1o argumento os botoes sobem ou descem se mudares o 2o eles ficam mais espaçados */
+		          margin-right: 80px;
+		          cursor: pointer;
+		          opacity: 1;
+		          border-radius: 4px;
+		        }
+
+		        .button2{background-color: #666666;}
+
+		        .button:hover{
+		          opacity: 0.75;
+		        }
+link{
+    display: block;
+}
+
