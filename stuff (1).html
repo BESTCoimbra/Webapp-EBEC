@@ -3,7 +3,7 @@
 		<head>
 			<title>AdicionarItem</title>
             <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-            <link rel="stylesheet" type="text/css" href="style.css">
+            <link rel="stylesheet" type="text/css" href="estilo_addItem.css">
 			<meta charset="utf-8">
             
             <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -25,7 +25,7 @@
                         <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <div id="imagemHeader">
 
-                            <img class="img-responsive" src="EBEC_Local_short_name.png" >
+                            <img class="img-responsive" src="img/EBEC_Local_short_name.png" >
                             </div>
                         </div>
                     </div>
@@ -35,49 +35,54 @@
 			<main>
                 <div class="container-fluid">
                     <div class="row">
-                    <div class="col-12">
-					       <h1>Adicionar item</h1>
-                </div>
-				<div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2 offset-md-1 offset-lg-1 offset-xl-1">
+                        <div class="col-12">
+                               <h1>Adicionar item</h1>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 offset-lg-1 offset-xl-1">
 
-					<img class="img-responsive" id="material" src="intro.jpg">
+                            <img class="img-responsive" id="material" src="img/49380234_2183080501714769_5785045498574405632_o.jpg">
 
                         </div>
-                    <div class=" col-12 col-sm-6 col-md-9 col-lg-9 col-xl-9 ">
-					<form action="">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-12">
-                                
-	                  <input id="nome" type="text" placeholder="Nome"> 
+                        <div class=" col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
+                            <form action="">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12">
+
+                                               <input id="nome" type="text" placeholder="Nome"> 
+                                            </div>
+
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                <input id="preco" type="text" placeholder="Preço">
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+
+                                                <label name="Quantidade" id="quantidade">Quantidade</label>
+                                                <a id="menos" onclick="Less()">-</a>
+                                                <label id="numero">0</label>
+                                                <a id="mais" onclick="Add()">+</a>
+                                            </div>
+                                        </div>
                                     </div>
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-	                  <input id="preco" type="text" placeholder="Preço">
-                            </div>
-                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-
-                        <label name="Quantidade" id="quantidade">Quantidade</label>
-                                
-                                <a id="menos">-</a>
-                                <label id="numero">0</label>
-                                <a id="mais">+</a>
-                                 </div>
-                         </div>
+                                <input id="confirmar" value="Confirmar" name="submit">
+                            </form>
+                            <a id="voltar" href="#">Voltar</a>
                         </div>
-	                </form>
-					
-				</div>
-                </div>
+                    </div>
                 </div>
 			</main>
-
-			<nav>
-
-				<button class="button">Confirmar</button>
-            	<button class = "button button2">Voltar</button>
-				
-			</nav>
-
+            <script>
+                var n=0;
+                function Add(){
+                    n++;
+                    $("#numero").text(n.toString());
+                }
+                function Less(){
+                    if(n>0){
+                        n--;
+                        $("#numero").text(n.toString());
+                    }
+                }
+            </script>
 		</body>
 	</html>

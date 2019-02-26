@@ -1,0 +1,142 @@
+
+body{
+    font-family: "Open Sans" sans-serif;
+}
+header{
+    height: 20vh;
+					
+    position: relative;
+					
+}
+
+#imagemHeader img{
+    position: absolute;
+    margin-top: 10%;
+    left: 13%;
+    width: 100%;
+					
+}
+
+h1{
+    width: 80%;
+    color: #F1A337;
+    font-size: 42px;
+    margin-top: 5%;
+    margin-left: 10%;
+    border-bottom: black 1px solid;
+}
+
+#material{
+    width:100%;
+    margin-left: 10%;
+    margin-top: 20%;
+				
+}
+#nome{
+    width:80%;
+    margin-top: 6%;
+    margin-left: 5%;
+}
+#preco{
+    width: 30%;
+    margin-top:6%;
+    margin-left: 10%;
+}
+#quantidade{
+    width:40%;
+    margin-top: 6.5%;
+    color: black;
+    font-size: 18px;
+
+}
+#numero{
+    background-color: #666666;
+    color:white;
+    width:5%;
+    text-align: center;
+    margin-left: 2%;
+    margin-right: 2%;
+       
+    
+}
+#menos, #mais{
+    font-size: 24px;
+    cursor: pointer;
+}
+				
+
+input[type=text] {
+    width: 100%;
+    border: 0;
+    border-bottom: black 1px solid;
+}
+
+::placeholder {
+		          
+    color: black;
+    font-size: 18px;
+}
+
+nav{
+					
+    position: relative;
+    height: 20vh;
+}
+
+#confirmar{
+    
+    float: right;
+    background-color:#F1A337;
+    border: none;
+    color: white;
+    padding: 1% 0;
+    margin-right: 15%;
+    margin-top: 15%;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#voltar{
+    background-color: #666666;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: white;
+    padding: 1.1% 4%;
+    margin-right: 5%;
+    margin-top: 15%;
+    text-align: center;
+    float: right;
+}
+
+.button:hover{
+    opacity: 0.75;
+}
+link{
+    display: block;
+}
+@media only screen and (max-width:768px){
+    #material{
+        width:50%;
+    }
+    #nome{
+        width: 90%;
+    }
+    #preco{
+        margin-left: 5% !important;
+        width:50%;
+    }
+    #quantidade{
+        margin-left: 5%;
+        margin-top: 7%;
+
+    }
+    #voltar{
+        margin-right: 15%;
+    }
+   
+}
+
