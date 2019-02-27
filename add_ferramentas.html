@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>AdicionarItem</title>
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+            <link rel="stylesheet" type="text/css" href="add_ferramentas.css">
+			<meta charset="utf-8">
+            
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+            
+			
+				
+			<script src="js/jquery-3.1.1.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+
+
+
+		</head>
+
+		<body>
+
+			<header>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <div id="imagemHeader">
+
+                            <img class="img-responsive" src="img/EBEC_Local_short_name.png" >
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</header>
+
+			<main>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                               <h1>Adicionar ferramenta</h1>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 offset-lg-1 offset-xl-1">
+
+                            <img class="img-responsive" id="material" src="img/49380234_2183080501714769_5785045498574405632_o.jpg">
+                            
+                        </div>
+                    
+                        <div class=" col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
+                            <form action="">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12">
+
+                                               <input id="nome" type="text" placeholder="Nome"> 
+                                            </div>
+
+                                        </div>
+                                    </div> 
+                                
+                            </form>
+                           
+                        </div>
+                        
+                        <div class="col-12">
+                                        <div>
+                                
+                                        <div id="slots">
+                                            <h2>Slots</h2>
+
+                                        </div>
+                                        
+                                            
+                                        <div id="horas">
+                                            Hora de começo<input id="horacomeco" type="text">
+
+                                            Hora de fim<input id="horafim" type="text"> 
+
+                                        </div>     
+                                             
+                                    </div>
+                                        <input id="confirmar" value="Confirmar" name="submit">
+
+                                        <a id="voltar" href="#">Voltar</a> 
+                               
+                                    </div>
+                            
+                    </div>
+                </div>
+                
+			</main>
+            <script>
+                var n=0;
+                function Add(){
+                    n++;
+                    $("#numero").text(n.toString());
+                }
+                function Less(){
+                    if(n>0){
+                        n--;
+                        $("#numero").text(n.toString());
+                    }
+                }
+            </script>
+		</body>
+	</html>
