@@ -1,0 +1,16 @@
+body{
+    font-family: "Open Sans" sans-serif;
+}
+header{
+    height: 20vh;
+					
+    position: relative;
+					
+}
+
+#imageHeader img{
+	position: absolute;
+	margin-top: 10%;
+	left: 13%;
+	width: 100%;
+}
