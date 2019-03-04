@@ -1,18 +1,16 @@
 <!DOCTYPE html>
+
 <html>
 	<head>
 		<title>User Area</title>
-
-		<meta charset="utf-8"/>
-
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
         <link type="text/css" rel="stylesheet" href="estilo_userArea.css"/>
-        
+        <meta charset="utf-8"/>
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	</head>
 
 	<body>
@@ -20,13 +18,68 @@
 			<div class="container-fluid">
                 <div class="row">
                     <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <div id="imagemHeader">
+                        <div id="imageHeader">
                             <img class="img-responsive" src="img/EBEC_Local_short_name.png" >
                         </div>
                     </div>
                 </div>
 			</div>
 		</header>
+
+        <main>
+            <div class="container-fluid">
+                <div class="col-12">
+                    <h1 id="h1">Nome da equipa</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-4" id="colLeft">
+                        <div class="row">
+                            <div class="col-12" id="elements">
+                                <div class="col-12">
+                                    <label id="element1">Elemento 1</label>
+                                </div>
+                                <div class="col-12">
+                                    <label id="element2">Elemento 2</label>
+                                </div>
+                                <div class="col-12">
+                                    <label id="element3">Elemento 3</label>
+                                </div>
+                                <div class="col-12">
+                                    <label id="element4">Elemento 4</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12" id="teamInfo">
+                                <div class="col-12">
+                                    <label id="username">Username: </label>
+                                    <a id="usernameValue">equipa</a>
+                                </div>
+                                <div class="col-12">
+                                    <label id="password">Password: </label>
+                                    <a id="passwordValue">pass</a>
+                                </div>
+                                <div class="col-12">
+                                    <label id="room">Sala: </label>
+                                    <a id="roomValue">R5.3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4" id="colRight">
+                        <h2>Histórico</h2>
+
+                        <div class="mhe">
+                            <label id="temp">Total Gasto: <a id="spentValue">20</a></label>
+                        </div>
+                        <div class="mhe">
+                            <label id="temp">Saldo: <a id="balance">20</a></label></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
 
 	</body>
 </html>

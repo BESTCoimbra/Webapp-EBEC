@@ -5,7 +5,6 @@ header{
     height: 20vh;
 					
     position: relative;
-					
 }
 
 #imageHeader img{
@@ -13,4 +12,43 @@ header{
 	margin-top: 10%;
 	left: 13%;
 	width: 100%;
+}
+
+h1{
+    width: 80%;
+    color: #F1A337;
+    font-size: 42px;
+    margin-top: 5%;
+    margin-left: 10%;
+    border-bottom: black 1px solid;
+}
+
+#colLeft, #colRight{
+	margin-left: 11%;
+	margin-top: 2%;
+	font-size: 28px;
+}
+
+#element2, #element3, #element4{
+	margin-top: 3%;
+}
+
+#username, #password, #room{
+	margin-top: 3%;
+	color: #F1A337;
+}
+
+#username{
+	margin-top: 20%
+}
+
+.mhe{
+	background-color: #666666;
+	border-radius: 10px;
+	margin-bottom: 3%;
+}
+
+#temp{
+	color: white;
+	padding-top: 0.9%
 }
