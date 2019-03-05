@@ -1,0 +1,61 @@
+CREATE TABLE pessoa (
+	id	 BIGSERIAL PRIMARY KEY,
+	nome	 VARCHAR(512) UNIQUE NOT NULL,
+	curso	 VARCHAR(512) NOT NULL,
+	equipe_id BIGINT NOT NULL
+);
+
+CREATE TABLE equipe (
+	id	 BIGSERIAL PRIMARY KEY,
+	nome	 VARCHAR(512) UNIQUE NOT NULL,
+	creditos FLOAT(8) NOT NULL,
+	password VARCHAR(512) NOT NULL,
+	admin	 BOOL NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE slots (
+	id		 BIGSERIAL PRIMARY KEY,
+	inico_slot	 TIMESTAMP NOT NULL,
+	fim_slot	 TIMESTAMP NOT NULL,
+	ocupado	 BOOL,
+	ferramenta_id BIGINT NOT NULL)
+);
+
+CREATE TABLE materiais (
+	id		 BIGSERIAL PRIMARY KEY,
+	nome_material	 VARCHAR(512) NOT NULL,
+	preco		 FLOAT(8) NOT NULL,
+	quantidade_stock BIGINT NOT NULL,
+	existe_stock	 BOOL DEFAULT true,
+	imagem_url	 VARCHAR(512)
+);
+
+CREATE TABLE transacao (
+	id		 BIGSERIAL PRIMARY KEY,
+	estado	 BOOL,
+	quantidade	 INTEGER,
+	total	 FLOAT(8),
+	equipe_id	 BIGINT NOT NULL,
+	materiais_id BIGINT NOT NULL
+);
+
+CREATE TABLE ferramenta (
+	id	 BIGSERIAL PRIMARY KEY,
+	nome VARCHAR(512) NOT NULL,
+	sala VARCHAR(512) NOT NULL
+);
+
+CREATE TABLE slots_equipe (
+	slots_id	 BIGINT,
+	equipe_id BIGINT,
+	PRIMARY KEY(slots_id,equipe_id)
+);
+
+ALTER TABLE pessoa ADD CONSTRAINT pessoa_fk1 FOREIGN KEY (equipe_id) REFERENCES equipe(id);
+ALTER TABLE slots ADD CONSTRAINT slots_fk1 FOREIGN KEY (ferramenta_id) REFERENCES ferramenta(id);
+ALTER TABLE materiais ADD CONSTRAINT constraint_0 CHECK (Quantidade_stock >= 0);
+ALTER TABLE transacao ADD CONSTRAINT transacao_fk1 FOREIGN KEY (equipe_id) REFERENCES equipe(id);
+ALTER TABLE transacao ADD CONSTRAINT transacao_fk2 FOREIGN KEY (materiais_id) REFERENCES materiais(id);
+ALTER TABLE slots_equipe ADD CONSTRAINT slots_equipe_fk1 FOREIGN KEY (slots_id) REFERENCES slots(id);
+ALTER TABLE slots_equipe ADD CONSTRAINT slots_equipe_fk2 FOREIGN KEY (equipe_id) REFERENCES equipe(id);
+

@@ -1,0 +1,60 @@
+###############################################################################
+
+## Pesquias para a entidade Pessoa ##
+
+# Cria usuario na BD #
+
+INSERT INTO pessoa (nome,Curso,equipe_nome)
+VALUES(%nome%,%Curso%,%Nome da Equipe%);
+
+# Atualiza Dados de uma pessoa pelo seu id #
+
+# Se quiser deixar dados antigos no lugar reentroduzir no update ou apagar o item
+# ultimo item nao pode ter virgula
+
+UPDATE Pessoa
+SET Nome = 'Novo Nome',
+    Curso = 'Novo Curso'
+WHERE id = %id a ser trocado%;
+
+# Deletar Pessoa (as duas linhas devem ser usadas para deletar)#
+
+DELETE FROM pessoa
+WHERE id = %id a ser deletdo%;
+
+################################################################################
+################################################################################
+
+## Tabela Equipe ##
+
+# Cria Equipe #
+
+admin = true;
+normal = false;
+
+INSERT INTO equipe (Nome, Creditos, Password, Admin)
+VALUES (%nome%, %Valor%, %Password%, %Admin%);
+
+# Update Equipe pelo Id #
+
+# Se quiser deixar dados antigos no lugar reentroduzir no update ou apagar o item
+# ultimo item nao pode ter virgula
+
+UPDATE equipe
+SET Creditos = %QUANTO%,
+	Password = %Nova Password%,
+	admin = %Novo admin%
+WHERE nome = %Nome da Equipe%;
+
+# Deleta equipe (as duas linhas devem ser usadas para deletar) #
+
+DELETE FROM equipe
+WHERE nome = %equipe a ser deletdo%;
+DELETE FROM pessoa
+WHERE equipe_nome = %equipe a ser deletdo%;
+				
+
+##############################################################################
+##############################################################################
+
+

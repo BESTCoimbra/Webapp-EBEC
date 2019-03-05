@@ -40,50 +40,58 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 offset-lg-1 offset-xl-1">
 
-                            <img class="img-responsive" id="material" src="img/49380234_2183080501714769_5785045498574405632_o.jpg">
+                            <img class="img-responsive" id="material" alt="imagem" src="img/49380234_2183080501714769_5785045498574405632_o.jpg">
                             
                         </div>
-                    
-                        <div class=" col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
-                            <form action="">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-12">
+                        <script>
+                            function SubForm (){
+                                $.ajax({
+                                    url:'/Person/Edit/@Model.Id/',
+                                    type:'post',
+                                    data:$('#myForm').serialize(),
+                                    success:function(){
+                                        alert("worked");
+                                    }
+                                });
+                            }
+                        </script>
 
-                                               <input id="nome" type="text" placeholder="Nome"> 
+                            <form id="myForm" action="back-end/add_tool.php" method="POST">
+                                <div class=" col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                       <input id="nome" name="nome_ferramenta" type="text" placeholder="Nome">
+                                                       <input id="nomeSala" name="nome_sala" type="text" placeholder="Sala">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                </div>
+                                <div class="col-12">
+                                            <div>
+
+                                            <div id="slots">
+                                                <h2>Slots</h2>
+
+                                            </div>
+
+
+                                            <div id="horas">
+                                                Hora de começo<input id="horacomeco" name="horacomeco" type="text">
+
+                                                Hora de fim<input id="horafim" name="horafim" type="text">
+
                                             </div>
 
                                         </div>
-                                    </div> 
-                                
-                            </form>
-                           
-                        </div>
-                        
-                        <div class="col-12">
-                                        <div>
-                                
-                                        <div id="slots">
-                                            <h2>Slots</h2>
+                                            <input id="confirmar" name="submit" value="Confirmar" type="submit">
+
+                                            <a id="voltar" href="#">Voltar</a>
 
                                         </div>
-                                        
-                                            
-                                        <div id="horas">
-                                            Hora de começo<input id="horacomeco" type="text">
-
-                                            Hora de fim<input id="horafim" type="text"> 
-
-                                        </div>     
-                                             
-                                    </div>
-                                        <input id="confirmar" value="Confirmar" name="submit">
-
-                                        <a id="voltar" href="#">Voltar</a> 
-                               
-                                    </div>
-                            
-                    </div>
+                            </form>
+                        </div>
                 </div>
                 
 			</main>
