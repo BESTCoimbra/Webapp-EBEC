@@ -1,0 +1,77 @@
+body{
+    font-family: "Open Sans" sans-serif;
+}
+header{
+    height: 20vh;
+					
+    position: relative;
+					
+}
+
+#imagemHeader img{
+    position: absolute;
+    margin-top: 10%;
+    left: 13%;
+    width: 100%;
+					
+}
+
+h1{
+    width: 80%;
+    color: #F1A337;
+    font-size: 42px;
+    margin-top: 2%;
+    margin-left: 10%;
+    border-bottom: black 1px solid;
+}
+
+#nome{
+    margin-bottom: 5%;
+    width: 80%;
+    font-size: 20px;
+    margin-left:5%;
+}
+input[type=text] {
+    width: 100%;
+    border: 0;
+    border-bottom: black 1px solid;
+}
+#nome2{
+    margin-bottom: 10%;
+    margin-top:10%;
+    font-size: 20px;
+    width:80%;
+    margin-left:5%;
+}
+
+
+#confirmar{
+    
+    float: right;
+    background-color:#F1A337;
+    border: none;
+    color: white;
+    padding: 0.7% 0;
+    margin-right: 10%;
+    margin-top: 0%;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 10%;
+}
+
+#voltar{
+    background-color: #666666;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: white;
+    padding: 0.7% 4%;
+    margin-right: 3%;
+    margin-top: 0%;
+    text-align: center;
+    float: right;
+    margin-bottom: 10%;
+}
