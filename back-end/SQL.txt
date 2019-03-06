@@ -1,0 +1,117 @@
+###############################################################################
+
+## Pesquias para a entidade Pessoa ##
+
+# Cria usuario na BD #
+
+admin = true;
+normal = false;
+
+INSERT INTO pessoa (nome, Username, Password, Email, Admin)
+VALUES(%nome%,%Username%,%Password%,%Email%,%Admin%);
+
+# Atualiza Dados de uma pessoa pelo seu id #
+
+# Se quiser deixar dados antigos no lugar reentroduzir no update ou apagar o item
+# ultimo item nao pode ter virgula
+
+UPDATE Pessoa
+SET Nome = 'Novo Nome',
+    Username = 'Novo Username',
+    Password = 'Novo Pass',
+    Email = 'Novo Email',
+    Admin = true
+WHERE id = %id a ser trocado%;
+
+# Deletar Pessoa (as duas linhas devem ser usadas para deletar)#
+
+DELETE FROM pessoa
+WHERE id = %id a ser deletdo%;
+DELETE FROM pessoa_equipe
+WHERE pessoa_id = %id a ser deletdo%;
+
+# Retorna Todos os dados da Tabela#
+
+SELECT * FROM pessoa;
+
+# Retorna Todas as Pessoas que nao sao Admin e nao tem Time #
+
+SELECT * FROM pessoa
+WHERE admin = false AND NOT IN (SELECT pessoa_id FROM pessoa_equipe);
+
+# Retorna ID da pessoa com nome#
+
+select id from pessoa
+where nome = %nome%;
+
+################################################################################
+################################################################################
+
+## Tabela Equipe e pessoa_equipe ##
+
+# Cria Equipe #
+
+INSERT INTO equipe (Nome, Creditos)
+VALUES (%nome%, %Valor%);
+
+# Update Equipe pelo Id #
+
+# Se quiser deixar dados antigos no lugar reentroduzir no update ou apagar o item
+# ultimo item nao pode ter virgula
+
+UPDATE equipe
+SET nome = %NOME%,
+    Creditos = %QUANTO%
+WHERE id = %Qual equipe%;
+
+# Deleta equipe (as duas linhas devem ser usadas para deletar) #
+
+DELETE FROM equipe
+WHERE id = %id a ser deletdo%;
+DELETE FROM pessoa_equipe
+WHERE equipe_id = %id a ser deletdo%;
+
+# Retorna ID da Equipe com nome#
+
+SELECT id FROM equipe
+WHERE nome = %nome%;
+
+# Retorna tudo da Equipe #
+
+SELECT * FROM equipe;
+
+# Liga pessoa com nomeP a equipe com nomeE #
+
+INSERT INTO pessoa_equipe (pessoa_id, equipe_id)
+SELECT p.id, e.id
+FROM pessoa p, equipe e
+WHERE p.mome = %nomeP% AND e.nome = %nomeE%;
+
+# Liga Todos admins a Equipe BEST #
+
+INSERT INTO pessoa_equipe (pessoa_id, equipe_id)
+SELECT p.id, e.id
+FROM pessoa p, equipe e
+WHERE admin = true AND e.nome = 'BEST';
+
+# Retorna Todas as relacoes de equipes #
+
+SELECT p.id, p.nome, e.nome
+FROM pessoa p, equipe e, pessoa_equipe
+WHERE p.id = pessoa_id AND e.id = equipe_id;
+
+# Retorna Pessoa de Uma Equipe Pelo Nome #
+
+SELECT p.id, p.nome
+FROM pessoa p
+WHERE p.id IN (SELECT pessoa_id
+               FROM pessoa_equipe
+               WHERE equipe_id IN (SELECT id
+				                   FROM equipe
+								   WHERE nome = %nomeE%));
+				
+
+##############################################################################
+##############################################################################
+
+

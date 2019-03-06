@@ -1,0 +1,255 @@
+###############################################################################
+
+## Pesquias para a entidade Pessoa ##
+
+# Cria usuario na BD #
+
+# Id cria automatico
+
+INSERT INTO pessoa (nome,Curso,equipe_nome)
+VALUES(%nome%,%Curso%,%Nome da Equipe%);
+
+# Atualiza Dados de uma pessoa pelo seu id #
+
+# Se quiser deixar dados antigos no lugar reentroduzir no update ou apagar o item
+# ultimo item nao pode ter virgula
+
+UPDATE Pessoa
+SET Nome = 'Novo Nome',
+    Curso = 'Novo Curso'
+WHERE id = %id a ser trocado%;
+
+# Deletar Pessoa #
+
+DELETE FROM pessoa
+WHERE id = %id a ser deletdo%;
+
+################################################################################
+################################################################################
+
+## Tabela Equipe ##
+
+# Cria Equipe #
+
+admin = true;
+normal = false;
+
+# Id cria automatico
+
+INSERT INTO equipe (Nome, Creditos, Password, Admin)
+VALUES (%nome%, %Valor%, %Password%, %Admin%);
+
+# Update Equipe #
+
+# Se quiser deixar dados antigos no lugar reentroduzir no update ou apagar o item
+# ultimo item nao pode ter virgula
+
+UPDATE equipe
+SET Creditos = %QUANTO%,
+	Password = %Nova Password%,
+	admin = %Novo admin%
+WHERE id = %id da Equipe%;
+
+# Deleta equipe (as duas linhas devem ser usadas para deletar) #
+
+DELETE FROM equipe
+WHERE nome = %equipe a ser deletdo%;
+DELETE FROM pessoa
+WHERE id = %id da Equipe%;
+
+# Retorna as Relacoes de Equipes #
+
+SELECT p.nome, e.nome
+FROM pessoa p, equipe e
+WHERE e.nome = equipe_id;
+
+# Informacoes de quem esta na Equipe #
+
+SELECT *
+FROM pessoa
+WHERE equipe_id = %Nome%;
+
+# Id da Equipe com nome #
+
+SELECT id
+FROM equipe
+WHERE nome = %nome%;
+
+##############################################################################
+##############################################################################
+
+## Tabela Materiais ##
+
+# Cria Material #
+
+# Id cria automatico
+
+INSERT INTO materiais (Nome_Material, Preco, Quantidade_stock, Existe_stock, imagem_URL)
+VALUES (%nome%,%valor%,%quantos%,TRUE,%endereco%);
+
+# Update Material #
+
+# Se quiser deixar dados antigos no lugar reentroduzir no update ou apagar o item
+# ultimo item nao pode ter virgula
+
+UPDATE materiais
+SET nome_material = %nome%,
+    preco = %valor%,
+    quantidade_stock = %Quantos%,
+    existe_stock = %valor%
+WHERE id = %id a ser trocado%;
+
+# Update Stock Material #
+
+UPDATE materiais
+SET  existe_stock = %valor%
+WHERE id = %id a ser trocado%;
+
+# Deleta Material #
+
+DELETE FROM materiais
+WHERE id = %id a ser deletdo%;
+
+# Id de materiais por nome #
+
+SELECT ID
+FROM materiais
+WHERE nome_material = %nome%;
+
+##############################################################################
+##############################################################################
+
+## Tabela Transacao ##
+
+# Cria Transacao #
+
+INSERT INTO transacao (estado, quantidade, total, equipe_id, materiais_id)
+VALUES (FALSE, %quantidade%, %VALOR%, %Id da Equipe%, %Id do Materiais%);
+
+# Completa Transacao #
+
+UPDATE transacao
+SET estado = TRUE
+WHERE id = %id da transacao%;
+
+# Deleta #
+
+DELETE FROM transacao
+WHERE id = %id a ser deletdo%;
+
+# UPDATE transacao #
+
+UPDATE transacao
+SET estado = %TIPO%,
+	quantidade = %quantas%,
+	total = %valor%,
+	equipe_id = %equipe%,
+	materiais = %Materiais%
+WHERE id = %id da transacao%;
+
+# Id da Transacao por equipe#
+
+SELECT t.id , e.nome, m.nome
+FROM materiais m, equipe e, transacao t
+WHERE %e.id% IN (SELECT e.id
+				 FROM equipe e, transacao
+				 WHERE e.id = equipe_id) AND m.id IN (SELECT m.id
+				                                      FROM materiais m, transacao
+				                                      WHERE m.id = equipe_id)
+													  
+##############################################################################
+##############################################################################
+
+## Tabela Ferramenta ##
+
+# Cria Ferramenta #
+
+INSERT INTO ferramenta (nome, sala)
+VALUES(%nome%, %Sala%);
+
+# Update Ferramenta #
+
+UPDATE  ferramenta
+SET nome =  %nome%,
+    sala =  %sala%
+WHERE id = %id%;
+
+# Deleta Ferramenta #
+
+DELETE FROM ferramenta
+WHERE id = %id%;
+
+# Id pelo Nome #
+
+SELECT id
+FROM ferramenta
+WHERE nome = %nome%;
+
+# Id pela Sala #
+
+SELECT id
+FROM ferramenta
+WHERE sala = %nome%; 
+
+##############################################################################
+##############################################################################
+
+## Tabela Slot ##
+
+# Cria Slots #
+
+# time deve ser no formato 'YYYY-MM-DD HH:MM:SS -0'
+
+INSERT INTO slots (inico_slot, fim_slot, ocupado, ferramenta_id)
+VALUES (%time%, %time%, FALSE, %id%);
+
+# Update Slot #
+
+# Se quiser deixar dados antigos no lugar reentroduzir no update ou apagar o item
+# ultimo item nao pode ter virgula
+
+UPDATE slots
+SET inico_slot = %time%,
+    fim_slot = %time%,
+	ocupado = %value%,
+	ferramenta_id = %id%
+WHERE id = %id%;
+
+# Update Ocupado #
+
+UPDATE slots
+SET ocupado = %value%
+WHERE id = %id%;
+
+##############################################################################
+##############################################################################
+
+## Tabela slot_equipe ##
+
+# Liga equipe com slot  #
+
+INSERT INTO slot_equipe (slots_id, equipe_id)
+VALUES (%slots_id%, %equipe_id%),
+
+# Update slot_equipe #
+
+UPDATE slot_equipe
+SET equipe_id = %idE%
+WHER slots_id = %id%;
+
+UPDATE slot_equipe
+SET slots_id = %idS%
+WHER equipe_id = %id%;
+
+# Deleta Ligacao por equipe #
+
+DELETE FROM slot_equipe
+WHERE equipe_id = %id%;
+
+# Deleta Ligacao por slot #
+
+DELETE FROM slot_equipe
+WHERE slots_id = %id%;
+
+
+
