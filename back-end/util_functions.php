@@ -49,7 +49,7 @@
 
     /* Ferramentas */
 
-    function createFerramenta($connection, $nome, $sala, $got_to_details){
+    function createFerramenta($connection, $nome, $sala){
         $stmt = $connection->prepare("Insert INTO Ferramentas(nome, sala) VALUES(?,?);");
 
         $stmt->bind_param("ss", $nome, $sala);
@@ -58,13 +58,46 @@
             //TODO add logging file
             echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
         }
-        $id = $connection->insert_id;
+        return $connection->insert_id;
+    }
 
-        if($got_to_details){
-            echo "Go to details of " . $id;
-        } else {
-            echo "Tool added: " . $id;
+    function getFerramentaSlots($connection, $ferramenta_id){
+        $result = $connection->query("SELECT * FROM Slots WHERE ferramenta_id = $ferramenta_id");
+        $slots = array();
+        if ($result->num_rows != 0){
+            while($row = $result->fetch_assoc()) {
+                $slots[] = $row;
+            }
         }
+        return $slots;
+    }
+
+    function createSlot($connection, $ferramenta_id, $timestamp_inicio, $timestamp_fim){
+        $stmt = $connection->prepare("Insert INTO Slots(ferramenta_id, inico_slot, fim_slot) VALUES(?,FROM_UNIXTIME(?),FROM_UNIXTIME(?));");
+
+        $stmt->bind_param("iii", $ferramenta_id, $timestamp_inicio, $timestamp_fim);
+
+        if (!$stmt->execute()) {
+            //TODO add logging file
+            echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+        }
+        return $connection->insert_id;
+    }
+
+    function getFerramenta($connection, $ferramenta_id){
+        $result = $connection->query("SELECT * FROM Ferramentas WHERE id = $ferramenta_id");
+        return mysqli_fetch_assoc($result);
+    }
+
+    function getAllFerramentas($connection){
+        $result = $connection->query("SELECT * FROM Ferramentas");
+        $ferramentas = array();
+        if ($result->num_rows != 0){
+            while($row = $result->fetch_assoc()) {
+                $ferramentas[] = $row;
+            }
+        }
+        return $ferramentas;
     }
 
     /* Team */

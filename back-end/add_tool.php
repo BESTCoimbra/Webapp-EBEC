@@ -12,5 +12,5 @@
         $sala = $_POST["nome_sala"];
         echo $nome;
         echo $sala;
-        createFerramenta($conn, $nome, $sala, true);
+        createFerramenta($conn, $nome, $sala);
     }

@@ -140,6 +140,35 @@
                         </div>
                         
                            <div class="container">
+                               <div class="equipa">
+                                   <?php
+                                   $equipas = getAllEquipas($conn);
+                                   if(sizeof($equipas) == 0){
+                                       echo "Não existem equipas...";
+                                   }
+                                   else {
+                                       echo "<table class='table'>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Creditos</th>
+        <th>Sala</th>
+      </tr>
+    </thead>
+    <tbody>";
+                                       foreach ($equipas as $equipa) {
+                                           echo "<tr>";
+                                           echo "<td>" . $equipa["nome"] . "</td>";
+                                           echo "<td>" . $equipa["creditos"] . "</td>";
+                                           echo "<td>" . $equipa["sala"] . "</td>";
+                                           echo "</tr>";
+                                       }
+                                       echo "
+    </tbody>
+  </table>";
+                                   }
+                                   ?>
+                               </div>
                          <div class="row">
                             <div class="col-2">
                                 <img class="img-responsive" id="img" src="img/49380234_2183080501714769_5785045498574405632_o.jpg">
