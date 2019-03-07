@@ -30,12 +30,19 @@
         }
 
         if( $res->num_rows == 0){
-            echo "User or password is incorrect";
-            echo "<script> location.href='../index.html'; </script>";
+            echo '<div class="alert alert-danger" role="alert">
+                Username or Password are incorrect!
+            </div>';
         }
         else {
             echo "Welcome $username";
-            echo "<script> location.href='../add_ferramentas.html'; </script>";
+            $row = mysqli_fetch_assoc($res);
+            if($row["admin"]){
+                header("Location:homepage_editor.php");
+            }
+            else{
+                header("Location:userArea.html");
+            }
         }
     }
 
@@ -59,6 +66,45 @@
             echo "Tool added: " . $id;
         }
     }
+
+    /* Team */
+
+    function createEquipa($connection, $nome, $password, $creditos, $is_admin, $sala){
+        $stmt = $connection->prepare("Insert INTO Equipas(nome, password, creditos, admin, sala) VALUES(?,?,?,?, ?);");
+
+        $stmt->bind_param("ssdis", $nome, $password, $creditos, $is_admin, $sala);
+
+        if (!$stmt->execute()) {
+            //TODO add logging file
+            echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+        }
+        $id = $connection->insert_id;
+        return $id;
+    }
+
+    function getAllEquipas($connection){
+        $result = $connection->query("SELECT * FROM Equipas");
+        $equipas = array();
+        if ($result->num_rows != 0){
+            while($row = $result->fetch_assoc()) {
+                $equipas[] = $row;
+            }
+        }
+        return $equipas;
+    }
+
+function createPessoa($connection, $nome, $curso, $team_id){
+    $stmt = $connection->prepare("Insert INTO Pessoas(nome, curso, equipe_id) VALUES(?,?,?);");
+
+    $stmt->bind_param("ssi", $nome, $curso, $team_id);
+
+    if (!$stmt->execute()) {
+        //TODO add logging file
+        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    $id = $connection->insert_id;
+    return $id;
+}
 
     // Create connection
     $conn = connectToDatabase($db["hostname"],  $db["database"], $db["username"],

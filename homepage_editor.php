@@ -18,7 +18,10 @@
 		</head>
 
 		<body>
+            <?php
+                include("back-end/util_functions.php");
 
+            ?>
 			<header>
                 <div class="container-fluid">
                     <div class="row">
@@ -44,22 +47,47 @@
                         <div class="container">
                          <div class="row">
                             <div class="col-8">
-                            
                            
-                                <div id="equipa">
-                                    <p>Equipa 1</p>
-                                    <p>Equipa 2</p>
-                                    <p>Equipa 3</p>
-                                    <p>Equipa 4</p>
-
+                                <div class="equipa">
+                                    <?php
+                                        $equipas = getAllEquipas($conn);
+                                        if(sizeof($equipas) == 0){
+                                            echo "Não existem equipas...";
+                                        }
+                                        else {
+                                            echo "<table class='table'>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Creditos</th>
+        <th>Sala</th>
+      </tr>
+    </thead>
+    <tbody>";
+                                            foreach ($equipas as $equipa) {
+                                                echo "<tr>";
+                                                echo "<td>" . $equipa["nome"] . "</td>";
+                                                echo "<td>" . $equipa["creditos"] . "</td>";
+                                                echo "<td>" . $equipa["sala"] . "</td>";
+                                                echo "</tr>";
+                                            }
+                                            echo "
+    </tbody>
+  </table>";
+                                        }
+                                    ?>
                                 </div>
                             </div>
                                
                             <div class="col-4">
                              <div id="btns">
-                                <input id="devolvercompra" value="Devolver compra" name="submit">
+                                 <form action="">
+                                    <input id="devolvercompra" value="Devolver compra" type="submit" name="submit">
+                                 </form>
 
-                                <input id="devolvercompra" value="Adicionar equipa" name="submit">
+                                 <form action="edit_teams.php" method="GET">
+                                    <input id="devolvercompra" value="Adicionar equipa" type="submit" name="submit">
+                                 </form>
                             </div>
                            </div>
                             

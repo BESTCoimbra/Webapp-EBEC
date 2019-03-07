@@ -11,12 +11,29 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     </head>
     <body>
+    <?php
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            include("back-end/util_functions.php");
+
+            // Check connection
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            if ( isset( $_POST ) ){
+                $username = $_POST["username"];
+                $password = $_POST["password"];
+
+                attemptLogin($conn, $username, $password);
+            }
+        }
+    ?>
         <main>
             <div class="container-fluid">
                 <div class="row">
                     <div class="zona col-10 col-sm-10 col-md-6 col-lg-4 col-xl-4 offset-1 offset-sm-1 offset-md-6 offset-lg-8 offset-xl-8">
                         <img class="img-responsive ebec" src="img/EBEC_Local_short_name-1black.png">
-                        <form action="back-end/login_confirm.php" method="POST">
+                        <form action="index.php" method="POST">
                             
                             <input id="name" placeholder="Username" type="text" name="username" >
                             
